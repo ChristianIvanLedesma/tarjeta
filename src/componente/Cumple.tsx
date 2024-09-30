@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './tarjeta.css';
-import audio from '../assets/audio/audio.mp3'; // Esto ahora será tratado como string
+import audio from '../assets/audio/audio.mp3'; // Asegúrate de que esta ruta sea correcta
 
 type Props = {
     evento: string;
-    fecha: string; // Espera un formato de fecha como 'YYYY-MM-DDTHH:mm:ss'
+    fecha: string; // Formato de fecha como 'YYYY-MM-DDTHH:mm:ss'
     lugar: string;
     mensaje: string;
 };
@@ -42,7 +42,8 @@ const Invitacion: React.FC<Props> = ({ evento, fecha, lugar, mensaje }) => {
             }
         }, 1000);
 
-        playAudio(); // Reproduce el audio al montar el componente
+        // Reproducir el audio al montar el componente
+        playAudio(); 
 
         return () => {
             clearInterval(countdown); // Limpia el intervalo al desmontar el componente
