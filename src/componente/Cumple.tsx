@@ -14,11 +14,13 @@ const Invitacion: React.FC<Props> = ({ evento, fecha, lugar, mensaje }) => {
     const [audioElement] = useState(new Audio(audio)); // Cargar el audio
 
     useEffect(() => {
-        // Función para reproducir el audio
-        const playAudio = () => {
-            audioElement.play().catch((error) => {
+        // Intentar reproducir el audio automáticamente
+        const playAudio = async () => {
+            try {
+                await audioElement.play();
+            } catch (error) {
                 console.error("Error al reproducir el audio:", error);
-            });
+            }
         };
 
         // Iniciar la cuenta regresiva
@@ -43,7 +45,7 @@ const Invitacion: React.FC<Props> = ({ evento, fecha, lugar, mensaje }) => {
         }, 1000);
 
         // Reproducir el audio al montar el componente
-        playAudio(); 
+        playAudio();
 
         return () => {
             clearInterval(countdown); // Limpia el intervalo al desmontar el componente
@@ -58,7 +60,7 @@ const Invitacion: React.FC<Props> = ({ evento, fecha, lugar, mensaje }) => {
             <h3>Fecha: {fecha}</h3>
             <h3>Lugar: {lugar}</h3>
             <h3>Cuenta Regresiva: {timeRemaining}</h3>
-            <button>Confirmar Asistencia</button>
+            <button onClick={() => audioElement.play()}>Reproducir Audio</button>
         </div>
     );
 };
