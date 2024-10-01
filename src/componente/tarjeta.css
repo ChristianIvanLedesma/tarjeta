@@ -2,25 +2,26 @@
 .tarjeta {
     margin-top: 1;
     width: 100%;
-    height: auto; /* Permite que la altura se ajuste al contenido */
-    padding: 20px; /* Agrega padding para que el contenido no esté pegado a los bordes */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra para dar un efecto de profundidad */
-    border-radius: 10px; /* Bordes redondeados */
+    height: auto;
+    padding: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px; 
+    border:  1px solid red;
 }
 
 button {
     width: 200px;
-    height: 40px; /* Aumenta la altura para mayor accesibilidad */
+    height: 40px; 
     border-radius: 15px;
     background-color: rgb(121, 237, 100);
-    color: rgb(0, 0, 0); /* Color del texto del botón */
-    border: none; /* Elimina el borde predeterminado del botón */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
-    padding: 10px 20px; /* Corrige el padding, no debe estar entre comillas */
-    transition: background-color 0.3s ease; /* Añade una transición suave al hover */
+    color: rgb(0, 0, 0); 
+    border: none;
+    cursor: pointer; 
+    padding: 10px 20px;
+    transition: background-color 0.3s ease; 
 }
 
 button:hover {
-    background-color: rgb(77, 102, 101); /* Cambia el fondo en hover */
-    color: white; /* Mantiene el color del texto en hover */
+    background-color: rgb(77, 102, 101); 
+    color: white; 
 }
