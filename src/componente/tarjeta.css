@@ -1,10 +1,10 @@
 /* src/tarjeta.css */
 .tarjeta {
+    margin-top: 1;
     width: 100%;
     height: auto; /* Permite que la altura se ajuste al contenido */
     padding: 20px; /* Agrega padding para que el contenido no esté pegado a los bordes */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra para dar un efecto de profundidad */
-    
     border-radius: 10px; /* Bordes redondeados */
 }
 
@@ -21,6 +21,6 @@ button {
 }
 
 button:hover {
-    background-color: rgb(3, 3, 3); /* Cambia el fondo en hover */
+    background-color: rgb(77, 102, 101); /* Cambia el fondo en hover */
     color: white; /* Mantiene el color del texto en hover */
 }

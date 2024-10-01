@@ -11,9 +11,19 @@ type Props = {
 
 const Invitacion: React.FC<Props> = ({ evento, fecha, lugar, mensaje }) => {
     const [timeRemaining, setTimeRemaining] = useState<string>('');
+    const [formattedDate, setFormattedDate] = useState<string>(''); // Para la fecha formateada
     const [audioElement] = useState(new Audio(audio)); // Cargar el audio
 
     useEffect(() => {
+        // Convertir la fecha a formato latinoamericano
+        const eventDate = new Date(fecha);
+        const formatted = eventDate.toLocaleDateString('es-ES', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+        });
+        setFormattedDate(formatted);
+
         // Intentar reproducir el audio automáticamente
         const playAudio = async () => {
             try {
@@ -25,9 +35,8 @@ const Invitacion: React.FC<Props> = ({ evento, fecha, lugar, mensaje }) => {
 
         // Iniciar la cuenta regresiva
         const countdown = setInterval(() => {
-            const eventDate = new Date(fecha).getTime();
             const now = new Date().getTime();
-            const distance = eventDate - now;
+            const distance = eventDate.getTime() - now;
 
             // Cálculo de días, horas, minutos y segundos
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -57,10 +66,10 @@ const Invitacion: React.FC<Props> = ({ evento, fecha, lugar, mensaje }) => {
         <div className="tarjeta">
             <h1>¡Estás invitado/a a {evento}!</h1>
             <p>{mensaje}</p>
-            <h3>Fecha: {fecha}</h3>
+            <h3>Fecha: {formattedDate}</h3> {/* Mostrar la fecha formateada */}
             <h3>Lugar: {lugar}</h3>
             <h3>Cuenta Regresiva: {timeRemaining}</h3>
-            <button onClick={() => audioElement.play()}>Reproducir Audio</button>
+            <button onClick={() => audioElement.play()}>Confirmar Asistencia</button>
         </div>
     );
 };
